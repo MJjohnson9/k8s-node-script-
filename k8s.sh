@@ -9,6 +9,14 @@ apt install docker.io -y
 
 systemctl start docker;systemclt enable docker
 
+touch /etc/docker/daemon.json 
+
+printf "{
+       "exec-opts":["native.cgroupdriver=systemd"]
+        }" >> /etc/docker/daemon.json
+
+systemctl restart docker   
+
 apt-get update && sudo apt-get install -y apt-transport-https curl
 
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
@@ -23,7 +31,7 @@ apt-get install -y kubelet kubeadm kubectl
 
 swapoff -a
 
-echo "run kubeadm init for master" 
+echo "Node successful set up, run a kubeadm init if you wish to create a master" 
 
 
 
