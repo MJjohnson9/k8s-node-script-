@@ -11,9 +11,9 @@ systemctl start docker;systemclt enable docker
 
 touch /etc/docker/daemon.json 
 
-printf "{
-       "exec-opts":["native.cgroupdriver=systemd"]
-        }" >> /etc/docker/daemon.json
+printf '{
+"exec-opts":["native.cgroupdriver=systemd"]
+}' >> /etc/docker/daemon.json
 
 systemctl restart docker   
 
